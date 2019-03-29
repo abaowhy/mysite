@@ -9,7 +9,8 @@ urlpatterns = [
     url(r'^article-post/$', views.article_post, name='article_post'),
     url(r'^article-list/$', views.article_list, name='article_list'),
     url(r'^delete-article/$', views.delete_article, name='delete_article'),
-    url(r'^redit-article/(?P<article_id>\d+)$', views.redit_article, name='redit_article'),
+    url(r'^redit-article/(?P<article_id>\d+)/$', views.redit_article, name='redit_article'),
     url(r'^list-article-titles/$', list_views.article_titles, name='article_titles'),
     url(r'^list-article-detail/(?P<id>\d+)/(?P<slug>[-\w]+)$', list_views.article_detail, name='list_article_detail'),
+    url(r'^list-article-titles/(?P<username>[-\w]+)/$', list_views.article_titles, name='author_titles'),
 ]

@@ -9,10 +9,9 @@
         {% for article in articles %}
             <div class="list-group">
                 <a href="{% url 'article:list_article_detail' article.id article.slug %}" class="list-group-item active">
-                    <h4 class="list-group-item-heading">{{ article.title }}</h4>
-                    <p class="list-group-item-text">作者：{{ article.author.username }}</p>
+                    <h4 class="list-group-item-heading">{{ article.title }}</h4></a>
+                    <p class="list-group-item-text">作者：<a href="{% url 'article:author_titles' article.author.username %}">{{ article.author.username }}</a></p>
                     <p class="list-group-item-text">概要：{{ article.body|slice:':70'|linebreaks }}</p>
-                </a>
             </div>
         {% endfor %}
         {% include 'article/paginator.html' %}
