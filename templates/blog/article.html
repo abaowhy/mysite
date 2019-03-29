@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %} blog article {% endblock %}
+
+{% block content %}
+    <div class="row text-center vertical-middle-sm">
+        <h1> {{ article.title }} </h1>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-md-8">
+            <p class="text-center">
+                <span>{{ article.author.username }}</span>
+                <span style="margin-left: 20px">{{ article.publish }}</span>
+            </p>
+            <div>{{ article.body }}</div>
+        </div>
+        <div class="col-xs-6 col-md-4">
+            <h2>广告</h2>
+            <p>狗皮膏药：www.bailu.com</p>
+            <img width="200px" src="http://www.pptbz.com/pptpic/UploadFiles_6909/201203/2012031220134655.jpg">
+        </div>
+    </div>
+{% endblock %}

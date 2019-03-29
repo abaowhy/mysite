@@ -1,0 +1,38 @@
+{% load staticfiles %}
+<div class="container">
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="http://www.itdiffer.com"><img src="{% static '/images/logo.png' %}" width="50px"></a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav">
+                <li> <a href="{% url 'home' %}">Home</a></li>
+                <li> <a href="{% url 'blog:blog_title' %}">Blog</a></li>
+                <li> <a href="{% url 'article:article_titles' %}">Article</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                {% if user.is_authenticated %}
+                    <li>
+                        <div class="dropdown">
+                            <button type="button" class="btn btn-lg  dropdown-toggle" data-toggle="dropdown">
+                                {{ user.username }} <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li role="menuitem"><a href="{% url 'article:article_column' %}">修改密码</a> </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="{% url 'account:user_logout' %}">Logout</a> </li>
+                {% else %}
+                    <li><a href="{% url 'account:user_login' %}">Login</a></li>
+                    <li><a href="{% url 'account:user_register' %}">Sign Up</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+</div>
+{% block javascript %}
+    <script src="{% static 'js/jquery-1.12.0.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+{% endblock %}

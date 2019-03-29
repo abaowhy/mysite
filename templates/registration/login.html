@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Login{% endblock %}
+{% block content %}
+    <div class="text-center vertical-middle-sm">
+        <h1>Login</h1>
+        <p>Input you username and password</p>
+        <form class="form-horizontal" action="{% url 'account:user_login' %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Login">
+        </form>
+        <p style="margin-top: 10px">Forget Your password?
+            <a href="{% url 'pwd_reset:password_reset_recover' %}">reset password</a>
+        </p>
+        <p style="margin-top: 10px">If you had not a username,<a href="{% url 'account:user_register' %}">Register to be a user</a></p>
+    </div>
+{% endblock %}
